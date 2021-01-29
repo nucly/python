@@ -1,0 +1,11 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+{% block content %}
+    {% for project in projects %}
+        <img src="{% static project.image %}" alt="screenshot of project">
+        <p>{{ project.title }}</p>
+        <p>{{ project.description }}</p>
+        <p>{{ project.technology }}</p>
+        <p><a href="{% url 'projects:project_detail' project.pk %}">Read More</a></p>
+    {% endfor %}
+{% endblock %}
